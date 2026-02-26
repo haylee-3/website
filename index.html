@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haylee's Links</title>
+  <style>
+    body {
+      background: #f7f7fa;
+      color: #222;
+      font-family: 'Segoe UI', 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      transition: background 0.3s, color 0.3s;
+    }
+    .dark-mode {
+      background: #181818;
+      color: #eee;
+    }
+    .toggle-btn {
+      margin: 1.5rem 0 1rem 0;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background: #333;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 1px 1px 8px #eee;
+      transition: background 0.2s;
+    }
+    .toggle-btn:hover {
+      background: #555;
+    }
+    .main-heading {
+      font-size: 2.2rem;
+      margin: 1.2rem 0 0.5rem 0;
+      text-align: center;
+      color: #ff69b4;
+      text-shadow: 2px 2px 0 #fff, 4px 4px 0 #ffb6c1, 6px 6px 0 #ff69b4;
+    }
+    .desc {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #666;
+      max-width: 500px;
+    }
+    .links-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .link-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      background: #fff;
+      color: #c2185b;
+      border: 2px solid #ffb6c1;
+      border-radius: 8px;
+      padding: 0.7em 1.3em;
+      font-size: 1.1em;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 1px 1px 8px #eee;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+    }
+    .link-btn:hover {
+      background: #ffe4f7;
+      color: #ad1457;
+      border-color: #ff69b4;
+    }
+    .footer {
+      margin-top: auto;
+      padding: 1.2rem 0 0.7rem 0;
+      text-align: center;
+      font-size: 1rem;
+      color: #888;
+    }
+    .footer .credit {
+      color: #ff69b4;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      .main-heading {
+        font-size: 1.3rem;
+      }
+      .desc {
+        font-size: 1rem;
+      }
+      .links-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      .link-btn {
+        width: 90vw;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleMode()" id="toggleBtn">🌙 Dark Mode</button>
+  <h1 class="main-heading">hello welcome to Haylees links this is how u will find me</h1>
+  <div class="desc">
+    Where you can find all my socials and connect with me!<br>
+    Creativity, fun, and friendship all in one place.
+  </div>
+  <div class="links-list">
+    <a class="link-btn" href="https://www.youtube.com/@Hayleehehe" target="_blank">📺 YouTube</a>
+    <a class="link-btn" href="https://www.twitch.tv/haylee_hehe" target="_blank">💜 Twitch</a>
+    <a class="link-btn" href="https://x.com/Handy7736" target="_blank">🐦 Twitter/X</a>
+    <a class="link-btn" href="https://www.instagram.com/handyvr9/" target="_blank">📸 Instagram</a>
+    <a class="link-btn" href="https://www.tiktok.com/@hayleevt" target="_blank">🎵 TikTok</a>
+  </div>
+  <div class="footer">
+    <span id="datetime"></span><br>
+    Made with <span class="credit">💖 by Haylee</span>
+  </div>
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const btn = document.getElementById('toggleBtn');
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        btn.textContent = '☀️ Light Mode';
+      } else {
+        btn.textContent = '🌙 Dark Mode';
+      }
+    }
+    // Set current date and time
+    function updateDateTime() {
+      const now = new Date();
+      const options = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const time = now.toLocaleTimeString([], options);
+      const date = now.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('datetime').textContent = `${time} | ${date}`;
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  </script>
+</body>
+</html>
